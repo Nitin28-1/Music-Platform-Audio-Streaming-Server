@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Music Player</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 100px;
+    }
+    audio {
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🎵 My Music Player</h2>
+
+  <!-- Direct server call -->
+  <audio id="player" controls>
+    <source src="http://localhost:8000/play-music/5" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+
+  <br><br>
+
+  <button onclick="playMusic()">Play</button>
+  <button onclick="pauseMusic()">Pause</button>
+
+  <script>
+    const player = document.getElementById("player");
+
+    function playMusic() {
+      player.play();
+    }
+
+    function pauseMusic() {
+      player.pause();
+    }
+  </script>
+
+</body>
+</html>

@@ -18,7 +18,7 @@ app.get('/play-music/:musicId',(req,res)=>{
  
 
     const range=req.headers.range;
-    console.log("Range kya hai",range);
+    // console.log("Range kya hai",range);
 
     if(range)
     {
@@ -27,7 +27,7 @@ app.get('/play-music/:musicId',(req,res)=>{
         const parts=range.replace(/bytes=/,'').split('-');
         const start=parseInt(parts[0],10);
         const end=parts[1] ? parseInt(parts[1],10) : Math.min(start + size -1,fileSize-1);
-    console.log("Start End kya aa rha hai ",start, "   ",end);
+    // console.log("Start End kya aa rha hai ",start, "   ",end);
         const chunkSize=end-start+1;
         const file=fs.createReadStream(fileName,{start,end});
 
@@ -42,7 +42,7 @@ app.get('/play-music/:musicId',(req,res)=>{
     }
     else
     {
-        console.log('else wala part call ho rha hai ')
+        // console.log('else wala part call ho rha hai ')
         const head={
             'Content-Type':'audio/mpeg',
             'Content-Length':fileSize
